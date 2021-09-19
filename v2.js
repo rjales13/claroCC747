@@ -101,6 +101,8 @@ let CC747 = () => {
                 $('.removerFooterCC747').click(function(){
                     $('.removerFooterCC747').prev().css('display', 'block');                    
                     $('.removerFooterCC747').remove();
+                    sessionStorage.removeItem('tvId');
+                    sessionStorage.removeItem('subprodutosIds');
                 })
 
                 setTimeout(() => {
@@ -141,6 +143,17 @@ let CC747 = () => {
                 $('.closeModalCC747 a').click(function(){
                     $('.modalCC747').modal('hide');
                 })
+
+                if(sessionStorage.getItem('tvId') != null){
+                    $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click(function(){
+                        $('.CC747').remove();
+                        sessionStorage.setItem('stopCC747', true);
+                    })
+                    $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click(function(){
+                        $('.CC747').remove();
+                        sessionStorage.setItem('stopCC747', true);
+                    })
+                }
             }
 
             clearInterval(clearInterval(refreshIntervalId));
