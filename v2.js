@@ -189,13 +189,13 @@ let navigationCC747 = (t) => {
 let showProductsCC747 = (e,t) => {
     $('.secCC747').remove();
     let products = {
-        clarobox:{prod: 'clarobox',sub:'', id:401, preco:'25,00', servicoLogos:'', margin:'122px 0 0'},
+        clarobox:{prod: 'clarobox',sub:'', id:401, preco:'25,00', servicoLogos:'', margin:'100px 0 0'},
 
-        paramount:{prod: 'paramount',sub:'com Paramount +', id:492, preco:'29,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/c739BParamount.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">', margin:'100px 0 0'},
+        paramount:{prod: 'paramount',sub:'com Paramount +', id:492, preco:'29,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/c739BParamount.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">', margin:'80px 0 0'},
 
-        starzplay:{prod: 'starzplay',sub:'com Starzplay', id:401, preco:'34,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/starzCC747.png" style="margin-right: 5px;width: 36px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));margin: -4px 0;">', margin:'100px 0 0'},
+        starzplay:{prod: 'starzplay',sub:'com Starzplay', id:401, preco:'34,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/starzCC747.png" style="margin-right: 5px;width: 36px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));margin: -4px 0;">', margin:'80px 0 0'},
 
-        tophd:{prod: 'tophd',sub:'com Top HD', id:494, preco:'79,90',servicoLogos:'<img src="https://storage.googleapis.com/cro_images/cc739BGlobo.png" style="margin-right: 5px;width: 35px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));margin: -3px 0;">', margin:'100px 0 0'}
+        tophd:{prod: 'tophd',sub:'com Top HD', id:494, preco:'79,90',servicoLogos:'<img src="https://storage.googleapis.com/cro_images/cc739BGlobo.png" style="margin-right: 5px;width: 35px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));margin: -3px 0;">', margin:'80px 0 0'}
     };
 
     $('.ofertasCC747').attr('id', products[e]['prod']);
