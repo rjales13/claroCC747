@@ -99,8 +99,15 @@ let CC747 = () => {
                 $('.removerFooterCC747').click(function(){
                     $('.removerFooterCC747').prev().css('display', 'block');                    
                     $('.removerFooterCC747').remove();
-                    sessionStorage.removeItem('tvId');
-                    sessionStorage.removeItem('subprodutosIds');
+                    // sessionStorage.removeItem('tvId');
+                    // sessionStorage.removeItem('subprodutosIds');
+                    var refreshIntervalIdxxx = window.setInterval(function(){
+                        if($('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').length && $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').length){
+                            $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click();
+                            $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click();
+                            clearInterval(clearInterval(refreshIntervalIdxxx)); 
+                        }
+                    },1)
                 })
 
                 setTimeout(() => {
@@ -141,21 +148,21 @@ let CC747 = () => {
                     $('.modalCC747').modal('hide');
                 })
 
-                if(sessionStorage.getItem('tvId') != null){
-                    var refreshIntervalIdxxx = window.setInterval(function(){
-                        if($('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').length && $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').length){
-                            $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click(function(){
-                                $('.CC747').remove();
-                                sessionStorage.setItem('stopCC747', true);
-                            })
-                            $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click(function(){
-                                $('.CC747').remove();
-                                sessionStorage.setItem('stopCC747', true);
-                            })   
-                            clearInterval(clearInterval(refreshIntervalIdxxx));     
-                        }
-                    },1)
-                }
+                // if(sessionStorage.getItem('tvId') != null){
+                //     var refreshIntervalIdxxx = window.setInterval(function(){
+                //         if($('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').length && $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').length){
+                //             $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click(function(){
+                //                 $('.CC747').remove();
+                //                 sessionStorage.setItem('stopCC747', true);
+                //             })
+                //             $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click(function(){
+                //                 $('.CC747').remove();
+                //                 sessionStorage.setItem('stopCC747', true);
+                //             })   
+                //             clearInterval(clearInterval(refreshIntervalIdxxx));     
+                //         }
+                //     },1)
+                // }
             }
 
             clearInterval(clearInterval(refreshIntervalId));
@@ -214,7 +221,15 @@ let showProductsCC747 = (e) => {
             sessionStorage.setItem('claroBoxaddedCC747', true);
             let id = $(this).attr('id');
             const complUrl = products[e]['prod'] == 'starzplay' ? '&subprodutosIds=41' : '';
+            if(complUrl == '') atualizaSubProd();
             location.href=`https://planos.claro.com.br/checkout/dados-pessoais?tvId=${id}${complUrl}`;
         })        
     })
+}
+
+let atualizaSubProd = () => {
+    if(sessionStorage.getItem('subprodutosIds').indexOf(',') >= 0){
+        sessionStorage.setItem('subprodutosIds', sessionStorage.getItem('subprodutosIds').replace('41,', ''));
+        sessionStorage.setItem('subprodutosIds', sessionStorage.getItem('subprodutosIds').replace('41', ''));
+    }
 }

@@ -101,8 +101,15 @@ let CC747 = () => {
                 $('.removerFooterCC747').click(function(){
                     $('.removerFooterCC747').prev().css('display', 'block');                    
                     $('.removerFooterCC747').remove();
-                    sessionStorage.removeItem('tvId');
-                    sessionStorage.removeItem('subprodutosIds');
+                    // sessionStorage.removeItem('tvId');
+                    // sessionStorage.removeItem('subprodutosIds');
+                    var refreshIntervalIdxxx = window.setInterval(function(){
+                        if($('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').length && $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').length){
+                            $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click();
+                            $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click();
+                            clearInterval(clearInterval(refreshIntervalIdxxx)); 
+                        }
+                    },1)
                 })
 
                 setTimeout(() => {
@@ -144,16 +151,16 @@ let CC747 = () => {
                     $('.modalCC747').modal('hide');
                 })
 
-                if(sessionStorage.getItem('tvId') != null){
-                    $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click(function(){
-                        $('.CC747').remove();
-                        sessionStorage.setItem('stopCC747', true);
-                    })
-                    $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click(function(){
-                        $('.CC747').remove();
-                        sessionStorage.setItem('stopCC747', true);
-                    })
-                }
+                // if(sessionStorage.getItem('tvId') != null){
+                //     $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click(function(){
+                //         $('.CC747').remove();
+                //         sessionStorage.setItem('stopCC747', true);
+                //     })
+                //     $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click(function(){
+                //         $('.CC747').remove();
+                //         sessionStorage.setItem('stopCC747', true);
+                //     })
+                // }
             }
 
             clearInterval(clearInterval(refreshIntervalId));
@@ -220,7 +227,7 @@ let showProductsCC747 = (e,t) => {
     $('.addModalCC747').click(function(){
         sessionStorage.setItem('claroBoxaddedCC747', true);
         const complUrl = products[e]['prod'] == 'starzplay' ? '&subprodutosIds=41' : '';
-        if(complUrl == '') sessionStorage.removeItem('subprodutosIds');
+        if(complUrl == '') atualizaSubProd();
         if($(window).width() <= 992) sessionStorage.setItem('stopCC747', true);
         location.href=`https://planos.claro.com.br/checkout/dados-pessoais?tvId=${products[e]['id']}${complUrl}`;
     })        
@@ -261,10 +268,17 @@ let showProductsCC747 = (e,t) => {
         $('.secCC747 .addModalCC747').click(function(){
             sessionStorage.setItem('claroBoxaddedCC747', true);
             const complUrl = products[two]['prod'] == 'starzplay' ? '&subprodutosIds=41' : '';
-            if(complUrl == '') sessionStorage.removeItem('subprodutosIds');
+            if(complUrl == '') atualizaSubProd();
             if($(window).width() <= 992) sessionStorage.setItem('stopCC747', true);
             location.href=`https://planos.claro.com.br/checkout/dados-pessoais?tvId=${products[two]['id']}${complUrl}`;
         })
+    }
+}
+
+let atualizaSubProd = () => {
+    if(sessionStorage.getItem('subprodutosIds').indexOf(',') >= 0){
+        sessionStorage.setItem('subprodutosIds', sessionStorage.getItem('subprodutosIds').replace('41,', ''));
+        sessionStorage.setItem('subprodutosIds', sessionStorage.getItem('subprodutosIds').replace('41', ''));
     }
 }
 
