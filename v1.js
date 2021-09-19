@@ -142,14 +142,19 @@ let CC747 = () => {
                 })
 
                 if(sessionStorage.getItem('tvId') != null){
-                    $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click(function(){
-                        $('.CC747').remove();
-                        sessionStorage.setItem('stopCC747', true);
-                    })
-                    $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click(function(){
-                        $('.CC747').remove();
-                        sessionStorage.setItem('stopCC747', true);
-                    })
+                    var refreshIntervalIdxxx = window.setInterval(function(){
+                        if($('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').length && $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').length){
+                            $('.carrinho-desktop app-carrinho app-produto').eq(1).find('button').click(function(){
+                                $('.CC747').remove();
+                                sessionStorage.setItem('stopCC747', true);
+                            })
+                            $('.carrinho-mobile app-carrinho app-produto').eq(1).find('button').click(function(){
+                                $('.CC747').remove();
+                                sessionStorage.setItem('stopCC747', true);
+                            })   
+                            clearInterval(clearInterval(refreshIntervalIdxxx));     
+                        }
+                    },1)
                 }
             }
 
