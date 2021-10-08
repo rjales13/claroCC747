@@ -285,7 +285,7 @@ let showProductsCC747 = (e,t) => {
 }
 
 let atualizaSubProd = () => {
-    if(sessionStorage.getItem('subprodutosIds').indexOf(',') >= 0){
+    if(sessionStorage.getItem('subprodutosIds') != null && sessionStorage.getItem('subprodutosIds').indexOf(',') >= 0){
         sessionStorage.setItem('subprodutosIds', sessionStorage.getItem('subprodutosIds').replace('41,', ''));
         sessionStorage.setItem('subprodutosIds', sessionStorage.getItem('subprodutosIds').replace('41', ''));
     }
