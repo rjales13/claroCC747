@@ -231,6 +231,9 @@ let showProductsCC747 = (e,t) => {
     $('.ofertasCC747').css('background', `url(https://storage.googleapis.com/cro_images/background_${products[e]['prod']}_CC747.png)`);
 
     $('.addModalCC747').click(function(){
+        //NOVA ADICAO//
+        sessionStorage.setItem('stopCC747', true);
+        ///////////////
         sessionStorage.setItem('claroBoxaddedCC747', true);
         const complUrl = products[e]['prod'] == 'starzplay' ? '&subprodutosIds=41' : '';
         if(complUrl == '') atualizaSubProd();
