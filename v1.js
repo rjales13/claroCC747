@@ -55,10 +55,10 @@ let CC747 = () => {
                             preco = '25,00';
                             voltar = 'disabled';
                             break;
-                        case '492':
-                            id = 492;
-                            sub = 'paramount';
-                            produto = 'Claro Box TV com Paramount +';
+                        case '532':
+                            id = 532;
+                            sub = 'hbo';
+                            produto = 'Claro Box TV com HBO Max +';
                             preco = '29,90';
                             break;
                         case '494':
@@ -177,7 +177,7 @@ let CC747 = () => {
 }
 
 let navigationCC747 = (t) => {
-    let products = ['clarobox','starzplay','paramount','tophd'];
+    let products = ['clarobox','starzplay','hbo','tophd'];
 
     let atual = $('.ofertasCC747').attr('id');
     $(products).each(function(e,i){
@@ -207,7 +207,7 @@ let showProductsCC747 = (e) => {
     let products = {
         clarobox:{prod: 'clarobox',sub:'', id:401, preco:'25,00', servicoLogos:''},
 
-        paramount:{prod: 'paramount',sub:'Paramount +', id:492, preco:'29,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/c739BParamount.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">'},
+        hbo:{prod: 'hbo',sub:'HBO Max', id:532, preco:'29,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/c739BPHbo.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">'},
 
         starzplay:{prod: 'starzplay',sub:'Starzplay', id:401, preco:'34,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/starz_branco_CC747.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">'},
 

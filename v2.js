@@ -56,10 +56,10 @@ let CC747 = () => {
                             preco = '25,00';
                             voltar = 'disabled';
                             break;
-                        case '492':
-                            id = 492;
-                            sub = 'paramount';
-                            produto = 'Claro Box TV com Paramount +';
+                        case '535':
+                            id = 532;
+                            sub = 'hbo';
+                            produto = 'Claro Box TV com HBO Max +';
                             preco = '29,90';
                             if($(window).width() > 992) next = 'disabled';
                             break;
@@ -175,7 +175,7 @@ let CC747 = () => {
 }
 
 let navigationCC747 = (t) => {
-    let products = ['clarobox','starzplay','paramount','tophd'];
+    let products = ['clarobox','starzplay','hbo','tophd'];
 
     let atual = $('.ofertasCC747').attr('id');
     
@@ -217,7 +217,7 @@ let showProductsCC747 = (e,t) => {
     let products = {
         clarobox:{prod: 'clarobox',sub:'', id:401, preco:'25,00', servicoLogos:'', margin:'100px 0 0'},
 
-        paramount:{prod: 'paramount',sub:'com Paramount +', id:492, preco:'29,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/c739BParamount.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">', margin:'80px 0 0'},
+        hbo:{prod: 'hbo',sub:'com HBO Max', id:532, preco:'29,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/c739BPHbo.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">', margin:'80px 0 0'},
 
         starzplay:{prod: 'starzplay',sub:'com Starzplay', id:401, preco:'34,90', servicoLogos:'<img src="https://storage.googleapis.com/cro_images/starz_branco_CC747.png" style="margin-right: 5px;width: 32px;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));">', margin:'80px 0 0'},
 
@@ -256,13 +256,13 @@ let showProductsCC747 = (e,t) => {
             action = 'before';                
         }
         
-        if(e == 'paramount'){
+        if(e == 'hbo'){
             two = 'tophd';
             action = 'after';    
         }
 
         if(e == 'tophd'){
-            two = 'paramount';
+            two = 'hbo';
             action = 'before';
         }
 
@@ -308,7 +308,7 @@ $(window).resize(function(){
                 $('.setaVoltarCC747 a').attr('disabled', 'disabled');
                 $('.setaProximaCC747 a').removeAttr('disabled');
             } 
-            if(atual == 'paramount' || sec == 'paramount' || atual == 'tophd' || sec == 'tophd'){
+            if(atual == 'hbo' || sec == 'hbo' || atual == 'tophd' || sec == 'tophd'){
                 $('.setaVoltarCC747 a').removeAttr('disabled');
                 $('.setaProximaCC747 a').attr('disabled', 'disabled');
             }    
